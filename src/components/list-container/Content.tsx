@@ -42,7 +42,6 @@ export const Content = ({
          setFruits(newValues);
          setCheckedFruits([...filteredChecks]);
       }
-      console.log(checkedFruits);
    };
 
    return (

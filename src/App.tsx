@@ -1,4 +1,5 @@
 import { ListContainer } from './components/list-container/ListContainer';
+import { FoodForm } from './components/forms/food-form/FoodForm';
 
 function App() {
    return (
@@ -15,10 +16,10 @@ function App() {
                display: 'flex',
                width: '100%',
                justifyContent: 'center',
-               padding: '1rem',
+               padding: '4rem 1rem 0 1rem',
             }}
          >
-            Punkt 1
+            <FoodForm />
          </section>
          <section
             style={{
@@ -26,7 +27,7 @@ function App() {
                width: '100%',
                justifyContent: 'center',
                padding: '1rem',
-               marginTop: '5rem',
+               marginTop: '1rem',
             }}
          >
             <ListContainer />

@@ -59,6 +59,14 @@ export const ListContainer = () => {
    const [isVisible, setIsVisible] = useState<boolean>(false);
    const [checkedFruits, setCheckedFruits] = useState<string[]>([]);
    const [prices, setPrices] = useState<PriceTypes[]>([]);
+   const [isHovered, setIsHovered] = useState<boolean>(false);
+
+   const handleMouseEnter = () => {
+      setIsHovered(true);
+   };
+   const handleMouseLeave = () => {
+      setIsHovered(false);
+   };
 
    const handleChange = (
       e: React.ChangeEvent<HTMLInputElement>,
@@ -160,7 +168,7 @@ export const ListContainer = () => {
                            </label>
                            <input
                               type="number"
-                              id={fruit.label}
+                              id={`input${fruit.label}`}
                               name={`input${fruit.label}`}
                               min="0"
                               placeholder={
@@ -181,17 +189,23 @@ export const ListContainer = () => {
                   style={{
                      alignSelf: 'flex-start',
                      padding: '0.6rem 1.1rem',
-                     backgroundColor: '#000',
+                     backgroundColor: `${isHovered ? '#333333' : '#000'}`,
                      color: '#fafafa',
                      border: ' none',
                      borderRadius: '0.5rem',
                      fontFamily: 'Roboto',
+                     fontSize: '1rem',
                      fontWeight: '400',
-                     cursor: 'pointer',
+                     cursor: `${
+                        prices.length === 0 ? 'not-allowed' : 'pointer'
+                     }`,
                      letterSpacing: '0.1px',
+                     opacity: `${prices.length === 0 ? '0.5' : '1'}`,
                   }}
                   onClick={() => handleClick()}
                   disabled={prices.length === 0}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                >
                   Dodaj cenę
                </button>
