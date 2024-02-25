@@ -15,7 +15,7 @@ export const Header = ({
    fruits: FruitTypes[];
    setFruits: React.Dispatch<React.SetStateAction<FruitTypes[]>>;
    checkedFruits: string[];
-   setCheckedFruits: React.Dispatch<React.SetStateAction<string[]>>;
+   setCheckedFruits: React.Dispatch<React.SetStateAction<string[] | []>>;
 }) => {
    const [isChecked, setIsChecked] = useState<boolean>(false);
 
@@ -34,7 +34,7 @@ export const Header = ({
 
          setFruits(newValues);
          if (filteredChecks.length > 0) {
-            setCheckedFruits(filteredChecks);
+            setCheckedFruits(filteredChecks as string[]);
          }
       } else if (!e.target.checked) {
          const newValues = fruits.map(fruit => {
