@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
    plugins: [react()],
-   base: '/recruitment_project_one/',
+   base: 'https://arrugonoto.github.io/recruitment_project_one/',
 });
