@@ -45,7 +45,7 @@ export const Content = ({
    };
 
    return (
-      <div style={{ display: 'flex', width: '100%', overflowY: 'scroll' }}>
+      <div style={{ display: 'flex', width: '100%' }}>
          <ul
             style={{
                display: 'flex',

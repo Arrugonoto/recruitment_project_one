@@ -19,7 +19,8 @@ export const FoodForm = () => {
    const {
       handleSubmit,
       setValue,
-      formState: { errors },
+      formState: { errors, isSubmitSuccessful },
+      clearErrors,
    } = useForm({ resolver: yupResolver(FormSchema) });
 
    const onSubmit = (data: FormData) => {
@@ -85,7 +86,11 @@ export const FoodForm = () => {
                         minWidth: '7rem',
                         padding: '0.5rem',
                         cursor: 'pointer',
-                        border: '1px solid #dfdfdf',
+                        border: `1px solid ${
+                           Object.keys(errors).length > 0
+                              ? 'rgb(219, 0, 0)'
+                              : '#dfdfdf'
+                        } `,
                         backgroundColor: 'transparent',
                         borderRadius: '0.3rem',
                         fontSize: '1rem',
@@ -93,6 +98,7 @@ export const FoodForm = () => {
                      }}
                      onChange={e => {
                         setValue('selectedValue', e.target.value);
+                        clearErrors();
                      }}
                   >
                      <option value="">Wybierz</option>
@@ -108,13 +114,15 @@ export const FoodForm = () => {
                   }}
                >
                   {errors.selectedValue?.message && (
-                     <p style={{ color: 'rgb(219, 0, 0)' }}>Wybierz wartość</p>
+                     <p style={{ color: 'rgb(219, 0, 0)' }}>
+                        Nie wybrano wartości
+                     </p>
                   )}
-                  {/* {submittedData && (
+                  {isSubmitSuccessful && (
                      <p style={{ color: 'rgb(0, 211, 0)' }}>
                         Pomyślnie wysłano
                      </p>
-                  )} */}
+                  )}
                </div>
             </div>
 
