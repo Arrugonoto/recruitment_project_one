@@ -62,14 +62,17 @@ export const Header = ({
             padding: '0.2rem',
          }}
       >
-         <input
-            style={{ cursor: 'pointer' }}
-            type="checkbox"
-            id="fruits"
-            name="fruits"
-            checked={isChecked}
-            onChange={handleChange}
-         />
+         <div style={{ display: 'flex', position: 'relative' }}>
+            <input
+               style={{ cursor: 'pointer' }}
+               type="checkbox"
+               id="fruits"
+               name="fruits"
+               checked={isChecked}
+               onChange={handleChange}
+            />
+            <label htmlFor="fruits"></label>
+         </div>
          <p>Owoce</p>
          <button
             style={{

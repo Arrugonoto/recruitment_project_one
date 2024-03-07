@@ -37,3 +37,62 @@ input[type='number'] {
    -moz-appearance: textfield;
    appearance: textfield;
 }
+
+input[type='checkbox'],
+input[type='checkbox']:checked {
+   -moz-appearance: none;
+   -webkit-appearance: none;
+   -o-appearance: none;
+   appearance: none;
+}
+
+input[type='checkbox'] {
+   position: relative;
+   width: 1.5rem;
+   height: 1.5rem;
+}
+
+input[type='checkbox'] + label::before {
+   content: '';
+   display: block;
+   cursor: pointer;
+   position: absolute;
+   text-align: center;
+   height: 1.5rem;
+   width: 1.5rem;
+   left: 0;
+   font-family: 'Montserrat';
+   border-radius: 5px;
+   border: 2px solid rgb(150 150 150 / 30%);
+}
+
+input[type='checkbox']:hover + label::before {
+   background-color: rgba(70, 70, 70, 0.1);
+}
+
+input[type='checkbox']:checked + label::before {
+   content: '';
+   display: block;
+   cursor: pointer;
+   position: absolute;
+   text-align: center;
+   height: 1.5rem;
+   width: 1.5rem;
+   left: 0;
+   background-color: #000;
+   font-family: 'Montserrat';
+   border-radius: 5px;
+   border: 2px solid #000;
+}
+
+input[type='checkbox']:checked + label::after {
+   content: url('assets/check-solid.svg');
+   display: block;
+   cursor: pointer;
+   position: absolute;
+   left: 4px;
+   top: 4px;
+   width: 1rem;
+   height: 1rem;
+   z-index: 10;
+}

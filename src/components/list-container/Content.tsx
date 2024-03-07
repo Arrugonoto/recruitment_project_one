@@ -70,6 +70,7 @@ export const Content = ({
                      <div
                         style={{
                            display: 'flex',
+                           position: 'relative',
                            gap: '1rem',
                            width: '60%',
                         }}
